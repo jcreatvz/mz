@@ -62,4 +62,3 @@ Visual browser QA and real-device touch/performance checks remain unverified: no
 ## GitHub handoff
 
 See `GITHUB-HANDOFF.md` for upload and hosting instructions. No npm install or build step is required.
-

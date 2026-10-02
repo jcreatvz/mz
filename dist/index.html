@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d94427'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial' font-weight='900' font-size='34' fill='%23eeeae3'%3EMZ%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#eeeae3">
+  <meta name="description" content="Metro Zoomin’ is an Edmonton running community. Walk, jog, run. Find your rhythm and your people.">
+  <title>Metro Zoomin’ — Good miles. Better vibes.</title>
+  <link rel="preload" href="assets/anton.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="game.css">
+  <script src="scene-motion.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="game-engine.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <a class="brand" href="#outside" aria-label="Metro Zoomin’ home">METRO<span>ZOOMIN’<i aria-hidden="true">↗</i></span></a>
+    <p class="header-location micro">EDMONTON, AB<br><span>GOOD MILES. BETTER VIBES.</span></p>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#together">The crew</a><a href="#zoom-run">Play</a><a href="#rhythm">Our pace</a><a class="nav-action" href="#next-run">Next run <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu"><span>Menu</span><span class="menu-icon" aria-hidden="true">+</span></button>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+    <a href="#together">The crew</a><a href="#zoom-run">Play Zoom Run</a><a href="#rhythm">Our pace</a><a href="#next-run">Next run</a>
+  </nav>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <main id="main">
+    <section class="scene hero" id="outside" data-scene="GET OUT" aria-labelledby="hero-title">
+      <div class="hero-meta micro"><span><i class="signal" aria-hidden="true"></i> RUN THE CITY. OWN THE PACE</span><span class="meetup-coordinates" title="Royal Glenora east gravel parking lot, beside the stairs">53.5324°N / 113.5119°W</span></div>
+      <div class="hero-notation micro" aria-hidden="true">THE CITY<br>IS OUR TRACK.</div>
+      <h1 id="hero-title" class="hero-title display"><span class="hero-line line-back">GET</span><span class="hero-line line-front">OUT.</span></h1>
+      <div class="actor-anchor anchor-hero" data-actor-anchor="hero" data-rotation="-5" aria-hidden="true"></div>
+      <div class="hero-footer foreground">
+        <p class="hero-description">A few KMs<br>A whole lot of good company.</p>
+        <a class="round-link" href="#together" aria-label="Explore the crew"><span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-track" aria-hidden="true"><span>START HERE</span><i></i><span>GO SOMEWHERE GOOD</span></div>
+    </section>
+
+    <section class="scene together" id="together" data-scene="TOGETHER" aria-labelledby="together-title">
+      <div class="scene-top micro"><span>(01 — THE CREW)</span><span>EVERYONE GETS A PLACE.</span><span aria-hidden="true">↙</span></div>
+      <h2 class="manifesto display" id="together-title"><span>A LITTLE</span><span class="indent">MOVEMENT.</span><span>A LOT OF</span><span class="orange foreground">CONNECTION.</span></h2>
+      <div class="together-copy foreground"><span class="crosshair" aria-hidden="true">+</span><div><p class="lead">Your pace is welcome here.</p><p>Metro Zoomin’ brings people together through running, walking, and finding a reason to get outside. Come for the miles. Stick around for the conversations that go absolutely nowhere.</p><p class="small-note">First run? You already belong.</p></div></div>
+      <div class="orbital-mark" aria-hidden="true"></div>
+      <div class="actor-anchor anchor-together" data-actor-anchor="crew" data-rotation="8" aria-hidden="true"></div>
+      <div class="together-bottom micro"><span>LESS OVERTHINKING.</span><span>MORE “SEE YOU THERE.”</span></div>
+    </section>
+
+    <section class="scene interlude" id="the-long-way" data-scene="TAKE THE LONG WAY" aria-labelledby="interlude-title">
+      <div class="interlude-stage">
+        <div class="scene-top micro"><span>(02 — A CHANGE OF SCENERY)</span><span>MAKE ROOM FOR A LITTLE DETOUR.</span></div>
+        <div class="lane lane-one" aria-hidden="true"></div><div class="lane lane-two" aria-hidden="true"></div>
+        <h2 id="interlude-title" class="wide-type display"><span>TAKE THE</span> <em>LONG WAY.</em></h2>
+        <div class="interlude-copy foreground"><span class="route-symbol" aria-hidden="true">↗</span><p>Same city.<br>Different kind of evening.</p><a class="text-link" href="#rhythm">Find your rhythm <span aria-hidden="true">↘</span></a></div>
+        <div class="interlude-coordinates micro" aria-hidden="true"><span>RGC → RIVER VALLEY → NEW FRIENDS</span><span>KEEP EXPLORING ↓</span></div>
+      </div>
+    </section>
+
+    <section class="scene zoom-run" id="zoom-run" data-scene="ZOOM RUN" aria-labelledby="game-title">
+      <div class="scene-top micro"><span>(03 — THE CITY IS YOUR TRACK)</span><span>A LITTLE PLAY. A LOT OF ZOOM.</span></div>
+      <div class="game-intro">
+        <h2 class="game-title display" id="game-title">KEEP<br><span>ZOOMIN’.</span></h2>
+        <div class="game-copy"><p>A little detour before your next real run.</p><p>Jump the roadblocks. Grab the water drops.<br>See how far ten bars can take you.</p><a class="game-skip" href="#next-run">Find the next club run</a></div>
+      </div>
+      <div class="game-shell" id="game-shell" data-state="ready">
+        <div class="game-hud">
+          <div class="health-readout"><span class="micro">LIFESPAN</span><div class="health-bars" id="game-health" role="meter" aria-label="Lifespan" aria-valuemin="0" aria-valuemax="10" aria-valuenow="10"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span id="health-value">10 / 10</span></div>
+          <div class="distance-readout"><span class="micro">DISTANCE</span><strong id="game-distance">0 m</strong></div>
+          <div class="water-readout"><img src="assets/game-water.webp" alt="" width="30" height="38" loading="lazy"><span id="game-drops" aria-label="Water drops collected">0</span></div>
+          <button id="game-pause" class="game-small-button" disabled>Pause</button>
+        </div>
+        <div class="game-track" id="game-track">
+          <canvas id="run-canvas" width="1200" height="440" tabindex="0" role="img" aria-label="Zoom Run game. The MZ runner moves along a city track. Press Space or the up arrow to jump, or use the Jump button. Collect water drops and avoid road hazards." aria-describedby="game-instructions">Your browser does not support the game canvas. You can still explore the club and next-run details below.</canvas>
+          <div class="game-overlay" id="game-overlay">
+            <div class="game-start-copy"><span class="micro" id="game-overlay-label">YOUR CITY. YOUR LITTLE DETOUR.</span><h3 class="display" id="game-overlay-title">LET’S<br>ZOOM.</h3><p id="game-overlay-copy">Ten bars. Water to keep you going.<br>Your first goal: one minute on the road.</p><button class="game-main-button" id="game-start">Play Zoom Run</button><a class="game-end-link" id="game-end-link" href="#next-run" hidden>Meet the crew in real life</a></div>
+          </div>
+          <div class="game-notice" id="game-notice" aria-hidden="true"></div>
+        </div>
+        <div class="game-controls">
+          <p id="game-instructions"><span class="desktop-instruction">SPACE / ↑ TO JUMP</span><span class="touch-instruction">TAP THE TRACK TO JUMP</span><span class="game-control-divider">·</span> WATER +1 BAR<span class="game-control-divider">·</span> HAZARDS −1 BAR</p>
+          <div class="game-control-buttons"><button id="game-restart" class="game-small-button" disabled>Restart</button><button id="game-jump" class="game-jump" disabled>Jump <span aria-hidden="true">↑</span></button></div>
+        </div>
+      </div>
+      <div class="game-legend" aria-label="Track hazards"><span class="micro">WATCH YOUR STEP</span><span><img src="assets/game-banana.webp" alt="" width="40" height="32" loading="lazy">Banana peel</span><span><img src="assets/game-ice.webp" alt="" width="43" height="26" loading="lazy">Ice patch</span><span><img src="assets/game-barrier.webp" alt="" width="40" height="36" loading="lazy">Roadworks</span><span><img src="assets/game-pothole.webp" alt="" width="44" height="25" loading="lazy">Potholes</span></div>
+      <p class="game-access-note">Play is optional. Pause anytime. Reduced-motion mode keeps the background still.</p>
+      <p id="game-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true">Game ready. Ten lifespan bars.</p>
+      <noscript><p class="game-no-script">Zoom Run needs JavaScript to play. The run club details are available below.</p></noscript>
+    </section>
+
+    <section class="scene rhythm" id="rhythm" data-scene="YOUR RHYTHM" aria-labelledby="rhythm-title">
+      <div class="scene-top micro"><span>(04 — SET YOUR OWN TEMPO)</span><span>THERE’S ROOM FOR EVERY RHYTHM.</span></div>
+      <div class="rhythm-heading"><h2 id="rhythm-title" class="display">YOUR PACE.<br><span>OUR PLACE.</span></h2><p>Some days you want to cruise.<br>Some days you’ve got more in the tank.<br>We’re here for both.</p></div>
+      <div class="rhythm-layout">
+        <div class="pace-list foreground" aria-label="Ways to move with the crew">
+          <div class="pace-item is-active"><button class="pace-toggle" id="pace-walk" aria-expanded="true" aria-controls="pace-walk-panel" data-pace="walk"><span class="display">WALK IT.</span><span class="pace-arrow" aria-hidden="true">↗</span></button><div id="pace-walk-panel" class="pace-panel" role="region" aria-labelledby="pace-walk"><p>Start with a stroll. Find a conversation. Walk and run-walk rhythms have a place here.</p><span class="micro">EASY DOES IT / NO RUSH</span></div></div>
+          <div class="pace-item"><button class="pace-toggle" id="pace-jog" aria-expanded="false" aria-controls="pace-jog-panel" data-pace="jog"><span class="display">JOG IT.</span><span class="pace-arrow" aria-hidden="true">↗</span></button><div id="pace-jog-panel" class="pace-panel" role="region" aria-labelledby="pace-jog" hidden><p>A comfortable rhythm with enough breath left for a good chat. Settle in with people moving at your speed.</p><span class="micro">SOCIAL MILES / GOOD CONVERSATION</span></div></div>
+          <div class="pace-item"><button class="pace-toggle" id="pace-zoom" aria-expanded="false" aria-controls="pace-zoom-panel" data-pace="zoom"><span class="display">ZOOM IT.</span><span class="pace-arrow" aria-hidden="true">↗</span></button><div id="pace-zoom-panel" class="pace-panel" role="region" aria-labelledby="pace-zoom" hidden><p>Feeling lively? Find your flow. Keep an eye on the crew, and check the next run’s route and pace details.</p><span class="micro">A LITTLE EXTRA / SAME CREW</span></div></div>
+        </div>
+        <div class="pace-window"><div class="window-top micro"><span>IN GOOD COMPANY</span><span aria-hidden="true">＋</span></div><div class="window-field" aria-hidden="true"><span class="pace-word display">EASY.</span><div class="route-dashes"></div></div><div class="window-bottom micro"><span id="pace-caption">NO RUSH. YOU’RE RIGHT ON TIME.</span><a href="#zoom-run">Play</a></div></div>
+      </div>
+      <p class="rhythm-foot micro">PACE IS A FEELING. BELONGING IS A GIVEN.</p>
+    </section>
+
+    <section class="scene next-run" id="next-run" data-scene="SEE YOU THERE" aria-labelledby="next-title">
+      <div class="scene-top micro"><span>(05 — YOUR NEXT MOVE)</span><span>EDMONTON, ALBERTA</span><span aria-hidden="true">↙</span></div>
+      <h2 id="next-title" class="display next-title">SAME CITY.<br><span class="orange">NEW PEOPLE.</span></h2>
+      <div class="next-layout foreground"><div class="invitation"><span class="micro">THE NEXT COMMUNITY RUN</span><h3>See you<br>out there.</h3><p>Meet us at Royal Glenora Parking Lot on Wednesdays at 18:00. A few kilometres, a familiar city, and a good reason to get outside.</p><a class="action-link" href="#run-guide" data-open-guide>Plan your first run <span aria-hidden="true">↗</span></a></div><dl class="run-facts"><div><dt>WHERE</dt><dd>Royal Glenora Parking Lot<span>Our starting point for good miles.</span></dd></div><div><dt>WHEN</dt><dd>18:00 on Wednesdays<span>Start times may shift with the seasons.</span></dd></div><div><dt>WHO</dt><dd>You, probably.<span>Walkers, joggers, runners, first-timers.</span></dd></div><div><dt>BRING</dt><dd>Yourself. Your shoes.<span>Water and a little curiosity help too.</span></dd></div></dl></div>
+      <div class="next-rule" aria-hidden="true"><span>YOU ARE HERE</span><i></i><b>↗</b><span>GOOD THINGS AHEAD</span></div>
+    </section>
+
+    <footer class="scene finale" id="finish" data-scene="KEEP ZOOMIN’">
+      <div class="finale-top micro"><span>GO AT YOUR OWN PACE.</span><span>COME BACK FOR THE PEOPLE.</span><a href="#outside">BACK TO TOP ↑</a></div>
+      <div class="finale-words display" aria-label="Metro Zoomin’"><span>METRO</span><span>ZOOMIN’</span></div>
+      <div class="actor-anchor anchor-finale" data-actor-anchor="footer" data-rotation="8" aria-hidden="true"></div>
+      <div class="footer-signoff foreground"><p>Good miles.<br>Better vibes.</p><a class="action-link" href="#next-run">Come run with us <span aria-hidden="true">↗</span></a></div>
+      <div class="footer-base micro foreground"><span>METRO ZOOMIN’ © 2026</span><span class="design-credit">GRXPHJC BY DESIGN</span><button id="motion-toggle" aria-pressed="false">SITE MOTION: OFF <span aria-hidden="true">↗</span></button></div>
+    </footer>
+  </main>
+
+  <!-- Independent MZ actors share a three-scene motion path and a clipped stage. -->
+  <div class="world-canvas" id="mascot-stage" aria-hidden="true">
+    <figure class="traveler traveler--boy" id="traveler"><div class="traveler-reaction"><div class="character-media" id="character-media"><img id="runner-poster" data-character-poster src="assets/mz-boy.svg" alt="" width="177" height="181" fetchpriority="high" decoding="async"></div></div></figure>
+    <figure class="traveler traveler--girl" id="traveler-girl"><div class="traveler-reaction"><div class="character-media" id="character-media-girl"><img id="runner-poster-girl" data-character-poster src="assets/mz-girl.svg" alt="" width="149" height="182" fetchpriority="high" decoding="async"></div></div></figure>
+  </div>
+  <div class="scene-index micro" aria-hidden="true"><span class="index-line"></span><span id="scene-number">01</span><span id="scene-label">GET OUT</span></div>
+  <div class="reaction-message micro" role="status" aria-live="polite"></div>
+
+  <dialog id="run-guide" aria-labelledby="guide-title"><button class="dialog-close" aria-label="Close first run guide">×</button><span class="micro">FIRST TIME WITH THE CREW?</span><h2 id="guide-title" class="display">YOU’RE<br>ALREADY IN.</h2><p>You don’t need to earn your place here.</p><ol><li><strong>Check the plan.</strong> Meet at Royal Glenora Parking Lot on Wednesdays at 18:00. Check the latest run update for the route and any seasonal time changes.</li><li><strong>Come as you are.</strong> Wear comfortable shoes, bring water, and dress for the weather.</li><li><strong>Say hello.</strong> Let the crew know it’s your first time and find a comfortable pace together.</li></ol><p class="guide-note">Start times may shift with the seasons. Check the latest club update before heading out.</p><button class="guide-done action-link">Sounds good <span aria-hidden="true">↗</span></button></dialog>
+  <noscript><style>dialog{display:block;position:relative;margin:50px auto}.dialog-close,.guide-done,#motion-toggle,[data-react]{display:none}.world-canvas{display:block;height:800px}.traveler{visibility:visible;width:32vw;top:180px}.traveler--boy{left:68vw}.traveler--girl{left:45vw}.desktop-nav{display:flex}.menu-toggle{display:none}.pace-panel[hidden]{display:block!important}.pace-arrow{display:none}@media(max-width:760px){.desktop-nav{font-size:12px;gap:12px}.header-location{display:none}.traveler{width:50vw;top:250px}.traveler--boy{left:65vw}.traveler--girl{left:30vw}}</style></noscript>
+</body>
+</html>
