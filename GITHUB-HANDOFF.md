@@ -1,19 +1,17 @@
 # Metro Zoomin’ — GitHub handoff
 
-Revision 4, October 2, 2026.
+The source is now in [`jcreatvz/mz`](https://github.com/jcreatvz/mz) on `main`.
 
-## Upload the source
+## Get a local working copy
 
-1. Unzip `Metro-Zoomin-GitHub-Source.zip`.
-2. Create an empty repository in your GitHub account.
-3. Choose **Add file → Upload files** and upload the extracted contents, preserving folders. Alternatively, use GitHub Desktop to publish the extracted folder.
-4. Commit the files. Your editable website is in `dist/`; the README, roadmap and scripts sit alongside it.
+```sh
+git clone https://github.com/jcreatvz/mz.git
+cd mz
+```
 
-The archive excludes Git history, credentials and Sites-specific hosting configuration. The existing Sites deployment remains independent. Uploading this source does not automatically link GitHub to Sites.
+The editable site is in `dist/`; artwork, scripts, README and roadmap are at the repository root. Open the repository in GitHub Desktop if you prefer a visual workflow.
 
 ## Run locally
-
-From the project folder:
 
 ```sh
 python3 -m http.server 8000 --directory dist
@@ -23,7 +21,7 @@ Open http://localhost:8000. There is no npm dependency or build step.
 
 ## Optional GitHub Pages hosting
 
-For simple branch-based Pages hosting, create a separate `gh-pages` branch and upload the **contents of `dist/`** at that branch’s root (so `index.html` is at the root). In repository **Settings → Pages**, choose **Deploy from a branch**, then `gh-pages` and `/ (root)`. Preserve the editable source on `main`. Copy updated `dist/` contents to `gh-pages` when publishing changes.
+The source remains on `main`. To publish the site through GitHub Pages, add a Pages workflow that uploads `dist/` as the Pages artifact, or publish a copy of the **contents of `dist/`** to a dedicated `gh-pages` branch so `index.html` is at that branch’s root. Then choose **Settings → Pages → Deploy from a branch → `gh-pages` / `(root)`**. GitHub Pages hosting is separate from the existing private Sites preview.
 
 ## Edit and check
 
@@ -39,6 +37,6 @@ node scripts/check-game.cjs
 python3 scripts/build-standalone.py metro-zoomin-offline.html
 ```
 
-The supplied font license is included. Keep asset filenames and letter case unchanged. No API keys, backend or sign-up service are required. JSON content editing, GSAP/Lenis and Lottie remain future work; see ROADMAP.md.
+The supplied font license is included. Keep asset filenames and letter case unchanged. No API keys, backend or sign-up service are required. JSON content editing, GSAP/Lenis and Lottie remain future work; see `ROADMAP.md`.
 
 Automated motion and game checks pass. Real-browser visual review and mobile touch/performance checks remain outstanding.
