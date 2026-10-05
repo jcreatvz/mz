@@ -1,5 +1,7 @@
 # Metro Zoomin’ — Zoom Run
 
+Release: October 5, 2026.
+
 An Edmonton run club website with oversized editorial typography, the supplied girl and boy MZ mascots, and an optional endless runner game.
 
 ## Preview and source
@@ -14,6 +16,14 @@ The page is a private frontend preview. The regular meetup is Wednesdays at 18:0
 - Display headlines retained; small text uses Helvetica Neue, Helvetica, Arial and sans-serif fallbacks. Scene numbers and coordinates remain; decorative menu/pace numbers are removed.
 - Site motion is on on first visit. An explicit on/off choice is remembered on this device. System reduced motion overrides the stored preference. The game starts only after Play, independently of decorative site motion.
 - Desktop, tablet and mobile CSS adapt the composition, game track, controls and typography. Native page scrolling remains available.
+
+## Photo gallery and motion release
+
+The approved motion draft is now integrated: intro loader, reversible heading slides, independent footer word motion, sky-blue cloud layers, floating back-to-top control and the restored route rail. `motion.css`, `motion.js`, and `scene-prepare.js` extend the original design without replacing its game or mascot paths.
+
+The photo gallery contains five supplied club photos plus one landscape meetup infographic. It uses natural image ratios, infinite wrapping, momentum scroll/drag and automatic 24px/s travel. Autoplay pauses during hover, keyboard focus, drag, offscreen/hidden state and reduced/site-motion-off. The Pause/Play control is independent; chevrons browse in either direction. Touch vertical scrolling remains available; desktop wheel input over the gallery drives the rail.
+
+Edit the `mz-run-photos` JSON in `dist/index.html`: `src`, `alt`, `width`, `height`, and optional `objectPosition`. Add images under `dist/assets/`; keep one `{ "type": "info", "width": 1200, "height": 800 }` entry. Preserve the true dimensions for portrait and landscape ratios. Photos are supplied originals, 622 KB total, loaded lazily. The standalone export embeds them once and works offline.
 
 ## Zoom Run
 

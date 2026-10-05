@@ -171,7 +171,7 @@
   $('#motion-toggle').addEventListener('click',()=>{preferences.off=!preferences.off;savedMotion=preferences.off?'off':'on';try{localStorage.setItem('metro-motion-v2',savedMotion);}catch(_){}syncMotionPreference();});
   reducedQuery.addEventListener('change',()=>{preferences.off=reducedQuery.matches||savedMotion==='off';syncMotionPreference();});
   syncMotionPreference();document.body.classList.add('motion-ready');
-  if(!preferences.off)$$('.hero-line').forEach(el=>el.classList.add('enter-animate'));
+  
   let reactionTimer;
   function react(){
     clearTimeout(reactionTimer);actors.forEach(a=>{a.media.setState('react');});

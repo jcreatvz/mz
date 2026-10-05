@@ -1,3 +1,13 @@
+# October 5, 2026 — Motion and gallery release
+
+Completed: promoted the approved HTML motion study into the maintainable site source; loader, heading entrances/exits, cloud footer, back-to-top control, five real club photos with portrait/landscape framing, automatic infinite gallery, chevrons, paper background and hero mascot inset. Meetup details remain consolidated in the run guide. The game and three-scene mascot choreography are preserved.
+
+Gallery content is editable through the `mz-run-photos` JSON block. Whole-site content JSON, GSAP/Lenis and Lottie controls remain in the parking lot. No new animation dependency was added.
+
+Release checks cover syntax, local assets, gallery wrap/ratio/autoplay lifecycle, game and mascot logic. Real-browser composition and device-performance review remain outstanding; this static project has no compatible supervised browser preview.
+
+---
+
 # Metro Zoomin’ — release notes & roadmap
 
 **Current milestone:** Revision 4 — directional mascot exits, motion-on default and orange game frame.
@@ -45,7 +55,7 @@ Motion is **on on first visit**. The footer toggle remembers an explicit on/off 
 | GSAP / Lenis | Parking lot | Evaluate coordinated section transitions and scroll effects after the content structure is stable. Preserve native navigation, motion controls and reduced-motion behavior. |
 | Lottie / SVG animation controls | Parking lot | Add supplied animations with play/pause, speed, loop and trigger controls; pause offscreen and retain static fallbacks. |
 
-The parking-lot ideas are documented only. JSON content loading, GSAP, Lenis and a Lottie player have **not** been added to this release.
+The parking-lot ideas are documented only. Whole-site JSON content loading, GSAP, Lenis and a Lottie player have **not** been added to this release.
 
 ## Meetup pin used
 

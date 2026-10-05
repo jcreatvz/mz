@@ -12,16 +12,19 @@ def data_url(path):
     return f'data:{mime};base64,'+base64.b64encode(path.read_bytes()).decode('ascii')
 
 html=(DIST/'index.html').read_text()
-css='\n'.join((DIST/file).read_text() for file in ('styles.css','game.css'))
+css='\n'.join((DIST/file).read_text() for file in ('styles.css','game.css','motion.css'))
 for relative in set(re.findall(r'assets/[a-zA-Z0-9_.-]+',css)):
     css=css.replace(relative,data_url(DIST/relative))
 html=re.sub(r'\s*<link rel="preload"[^>]+>','',html)
-html=html.replace('<link rel="stylesheet" href="styles.css">','<style>\n'+css+'\n</style>').replace('<link rel="stylesheet" href="game.css">','')
+html=html.replace('<link rel="stylesheet" href="styles.css">','<style>\n'+css+'\n</style>').replace('<link rel="stylesheet" href="game.css">','').replace('<link rel="stylesheet" href="motion.css">','')
 html=re.sub(r'\s*<script src="[^"]+" defer></script>','',html)
-assets={f'assets/{p.name}':data_url(p) for p in (DIST/'assets').iterdir() if p.suffix in ('.svg','.webp')}
+assets={f'assets/{p.name}':data_url(p) for p in (DIST/'assets').iterdir() if p.suffix in ('.svg','.webp','.jpg')}
 html=re.sub(r'src="(assets/[^"]+)"',lambda m:'src="'+assets.get(m[1],data_url(DIST/m[1]))+'"',html)
-scripts='window.METRO_ASSETS='+json.dumps(assets,separators=(',',':'))+';\n'
-scripts+='\n'.join((DIST/file).read_text() for file in ('scene-motion.js','app.js','game-engine.js','game.js'))
+# Gallery JSON is embedded as data URLs for offline viewing.
+for relative,url in assets.items():
+    html=html.replace('"'+relative+'"','"'+url+'"')
+scripts='window.METRO_ASSETS='+json.dumps({k:v for k,v in assets.items() if not k.endswith('.jpg')},separators=(',',':'))+';\n'
+scripts+='\n'.join((DIST/file).read_text() for file in ('scene-prepare.js','scene-motion.js','app.js','game-engine.js','game.js','motion.js','run-gallery.js'))
 html=html.replace('</body>','<script>\n'+scripts+'\n</script>\n</body>')
 out=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'metro-zoomin-concept-draft.html'
 out.write_text(html)

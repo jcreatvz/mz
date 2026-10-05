@@ -1,42 +1,34 @@
 # Metro Zoomin’ — GitHub handoff
 
-The source is now in [`jcreatvz/mz`](https://github.com/jcreatvz/mz) on `main`.
-
-## Get a local working copy
-
-```sh
-git clone https://github.com/jcreatvz/mz.git
-cd mz
-```
-
-The editable site is in `dist/`; artwork, scripts, README and roadmap are at the repository root. Open the repository in GitHub Desktop if you prefer a visual workflow.
+Release: October 5, 2026. Repository: https://github.com/jcreatvz/mz, branch `main`.
 
 ## Run locally
 
 ```sh
+git clone https://github.com/jcreatvz/mz.git
+cd mz
 python3 -m http.server 8000 --directory dist
 ```
 
-Open http://localhost:8000. There is no npm dependency or build step.
+Open http://localhost:8000. No npm dependencies or build step.
 
-## Optional GitHub Pages hosting
+## Editable files
 
-The source remains on `main`. To publish the site through GitHub Pages, add a Pages workflow that uploads `dist/` as the Pages artifact, or publish a copy of the **contents of `dist/`** to a dedicated `gh-pages` branch so `index.html` is at that branch’s root. Then choose **Settings → Pages → Deploy from a branch → `gh-pages` / `(root)`**. GitHub Pages hosting is separate from the existing private Sites preview.
-
-## Edit and check
-
-- Text, meetup information and links: `dist/index.html`.
-- Site layout: `dist/styles.css`.
-- Mascot routes: `dist/scene-motion.js`; rendering, scroll direction and motion preferences: `dist/app.js`.
-- Game frame: `dist/game.css`; simulation: `dist/game-engine.js`; controls/rendering: `dist/game.js`.
-- User-supplied original artwork: `artwork/`; optimized site assets: `dist/assets/`.
+- `dist/index.html`: scene copy, meetup guide and `mz-run-photos` JSON.
+- `dist/assets/mz-*.jpg`: the five supplied gallery photos.
+- `dist/run-gallery.js`: infinite wrapping, natural ratios, autoplay and controls.
+- `dist/motion.css`, `dist/motion.js`, `dist/scene-prepare.js`: motion-study enhancements.
+- `dist/styles.css`, `dist/app.js`, `dist/scene-motion.js`: original design and mascot paths.
+- `dist/game*`: the optional runner game.
 
 ```sh
 node scripts/check-motion.cjs
 node scripts/check-game.cjs
+node scripts/check-gallery.cjs
+python3 scripts/check-release.py
 python3 scripts/build-standalone.py metro-zoomin-offline.html
 ```
 
-The supplied font license is included. Keep asset filenames and letter case unchanged. No API keys, backend or sign-up service are required. JSON content editing, GSAP/Lenis and Lottie remain future work; see `ROADMAP.md`.
+The release ZIP includes editable source, assets and documentation. It excludes Git history and private hosting configuration. The separate offline HTML embeds its assets. GitHub is a source mirror; pushing to it does not automatically deploy the Sites publication. For other static hosts, publish the contents of `dist/`. Do not expose project-only files as the site root.
 
-Automated motion and game checks pass. Real-browser visual review and mobile touch/performance checks remain outstanding.
+Whole-site content JSON, GSAP/Lenis and Lottie remain future work. Visual browser/device QA remains outstanding.

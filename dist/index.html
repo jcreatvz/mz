@@ -10,12 +10,16 @@
   <link rel="preload" href="assets/anton.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="game.css">
+  <script src="scene-prepare.js" defer></script>
   <script src="scene-motion.js" defer></script>
   <script src="app.js" defer></script>
   <script src="game-engine.js" defer></script>
   <script src="game.js" defer></script>
+<link rel="stylesheet" href="motion.css">
+<script src="motion.js" defer></script>
+<script src="run-gallery.js" defer></script>
 </head>
-<body>
+<body><div class="motion-study-loader" id="motion-study-loader" hidden><span class="loader-top">METRO ZOOMIN’ / EDMONTON</span><div class="loader-disc" aria-hidden="true"></div><div class="loader-name" aria-hidden="true"><span>GET</span><span>OUT.</span></div><div class="loader-bottom"><span>RUN THE CITY. OWN THE PACE</span><button id="loader-skip">Skip intro</button><span class="loader-counter" id="loader-counter" aria-hidden="true">00</span></div></div><button class="to-top" id="back-to-top" aria-label="Back to top" title="Back to top" hidden>↑</button>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="top">
     <a class="brand" href="#outside" aria-label="Metro Zoomin’ home">METRO<span>ZOOMIN’<i aria-hidden="true">↗</i></span></a>
@@ -109,12 +113,66 @@
     <section class="scene next-run" id="next-run" data-scene="SEE YOU THERE" aria-labelledby="next-title">
       <div class="scene-top micro"><span>(05 — YOUR NEXT MOVE)</span><span>EDMONTON, ALBERTA</span><span aria-hidden="true">↙</span></div>
       <h2 id="next-title" class="display next-title">SAME CITY.<br><span class="orange">NEW PEOPLE.</span></h2>
-      <div class="next-layout foreground"><div class="invitation"><span class="micro">THE NEXT COMMUNITY RUN</span><h3>See you<br>out there.</h3><p>Meet us at Royal Glenora Parking Lot on Wednesdays at 18:00. A few kilometres, a familiar city, and a good reason to get outside.</p><a class="action-link" href="#run-guide" data-open-guide>Plan your first run <span aria-hidden="true">↗</span></a></div><dl class="run-facts"><div><dt>WHERE</dt><dd>Royal Glenora Parking Lot<span>Our starting point for good miles.</span></dd></div><div><dt>WHEN</dt><dd>18:00 on Wednesdays<span>Start times may shift with the seasons.</span></dd></div><div><dt>WHO</dt><dd>You, probably.<span>Walkers, joggers, runners, first-timers.</span></dd></div><div><dt>BRING</dt><dd>Yourself. Your shoes.<span>Water and a little curiosity help too.</span></dd></div></dl></div>
+      <div class="next-layout foreground"><div class="invitation"><span class="micro">THE NEXT COMMUNITY RUN</span><h3>See you<br>out there.</h3><p>Meet us at Royal Glenora Parking Lot on Wednesdays at 18:00. A few kilometres, a familiar city, and a good reason to get outside.</p><a class="action-link" href="#run-guide" data-open-guide>Plan your first run <span aria-hidden="true">↗</span></a></div><section class="run-slider photo-rail" aria-label="The club in motion" aria-roledescription="carousel">
+ <div class="run-slider-top"><span class="micro">THE CLUB IN MOTION</span></div>
+ <div class="run-slider-viewport" tabindex="0" aria-label="Infinite photo gallery. Drag, scroll, or use left and right arrow keys."><noscript>Enable JavaScript to explore the photo gallery. Meetup details are available in the run guide.</noscript></div>
+ <div class="run-slider-controls"><span class="micro">DRAG / EXPLORE</span><div><button type="button" class="run-autoplay" aria-label="Pause gallery" aria-pressed="false">Pause</button><button type="button" class="run-prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7"/></svg></button><button type="button" class="run-next" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7"/></svg></button></div></div>
+<span class="photo-status" role="status" aria-live="polite"></span>
+ <template id="run-info-card"><div class="rail-info"><span class="micro">METRO ZOOMIN’ / NEXT RUN</span><strong>GOOD MILES.<br>BETTER VIBES.</strong><div class="rail-info-bottom"><span>WEDNESDAYS / 18:00<br>ROYAL GLENORA PARKING LOT</span><span class="rail-info-arrow" aria-hidden="true">↗</span></div></div></template>
+</section>
+<!-- Gallery content: edit this JSON to add photos. width/height preserve each photo’s ratio. -->
+<script type="application/json" id="mz-run-photos">[
+  {
+    "src": "assets/mz-crew-evening.jpg",
+    "alt": "The Metro Zoomin\u2019 crew gathered outside after an evening run",
+    "width": 1080,
+    "height": 722,
+    "objectPosition": "50% 50%"
+  },
+  {
+    "src": "assets/mz-runner-trail.jpg",
+    "alt": "A runner wearing the MZ anniversary shirt on a sunny park trail",
+    "width": 1080,
+    "height": 1350,
+    "objectPosition": "50% 50%"
+  },
+  {
+    "type": "info",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "src": "assets/mz-anniversary-shirts.jpg",
+    "alt": "Metro Zoomin\u2019 anniversary shirts at an outdoor event",
+    "width": 720,
+    "height": 900,
+    "objectPosition": "50% 50%"
+  },
+  {
+    "src": "assets/mz-night-meetup.jpg",
+    "alt": "The run club gathering by the river at night",
+    "width": 1080,
+    "height": 720,
+    "objectPosition": "50% 50%"
+  },
+  {
+    "src": "assets/mz-run-the-city.jpg",
+    "alt": "Two people wearing Metro Zoomin\u2019 Run the City shirts",
+    "width": 1080,
+    "height": 1350,
+    "objectPosition": "50% 50%"
+  }
+]</script>
+</div>
       <div class="next-rule" aria-hidden="true"><span>YOU ARE HERE</span><i></i><b>↗</b><span>GOOD THINGS AHEAD</span></div>
     </section>
 
-    <footer class="scene finale" id="finish" data-scene="KEEP ZOOMIN’">
-      <div class="finale-top micro"><span>GO AT YOUR OWN PACE.</span><span>COME BACK FOR THE PEOPLE.</span><a href="#outside">BACK TO TOP ↑</a></div>
+    <footer class="scene finale" id="finish" data-scene="KEEP ZOOMIN’"><div class="footer-clouds" aria-hidden="true">
+<svg class="cloud-back" viewBox="0 0 1440 360" preserveAspectRatio="none"><path fill="currentColor" stroke="#60b8e2" stroke-width="1.2" d="M-20 165 C30 90 100 80 150 120 C135 35 275 15 320 110 C370 95 420 130 420 180 C480 135 540 140 580 175 C590 80 750 45 805 145 C890 90 970 140 975 170 C995 70 1100 70 1140 95 C1190 10 1370 20 1400 70 L1460 20 L1460 370 L-20 370Z"/></svg>
+<svg class="cloud-middle" viewBox="0 0 1440 360" preserveAspectRatio="none"><path fill="currentColor" stroke="#74c5e9" stroke-width="1.2" d="M-20 235 C25 165 100 165 145 200 C190 115 300 115 340 190 C395 160 490 180 510 235 C560 205 625 160 690 195 C740 105 865 110 910 200 C970 165 1050 175 1080 225 C1100 150 1190 130 1240 170 C1320 100 1400 135 1460 185 L1460 370 L-20 370Z"/></svg>
+<svg class="cloud-front" viewBox="0 0 1440 360" preserveAspectRatio="none"><path fill="currentColor" stroke="#92d3ef" stroke-width="1.2" d="M-20 295 C35 250 95 250 140 275 C180 215 280 220 315 275 C380 245 435 265 470 295 C520 210 610 200 660 275 C725 250 780 265 825 305 C870 215 985 190 1040 275 C1110 245 1170 255 1210 295 C1250 205 1390 200 1460 265 L1460 370 L-20 370Z"/></svg>
+</div>
+      <div class="finale-top micro"><span>GO AT YOUR OWN PACE.</span><span>COME BACK FOR THE PEOPLE.</span></div>
       <div class="finale-words display" aria-label="Metro Zoomin’"><span>METRO</span><span>ZOOMIN’</span></div>
       <div class="actor-anchor anchor-finale" data-actor-anchor="footer" data-rotation="8" aria-hidden="true"></div>
       <div class="footer-signoff foreground"><p>Good miles.<br>Better vibes.</p><a class="action-link" href="#next-run">Come run with us <span aria-hidden="true">↗</span></a></div>
@@ -130,7 +188,7 @@
   <div class="scene-index micro" aria-hidden="true"><span class="index-line"></span><span id="scene-number">01</span><span id="scene-label">GET OUT</span></div>
   <div class="reaction-message micro" role="status" aria-live="polite"></div>
 
-  <dialog id="run-guide" aria-labelledby="guide-title"><button class="dialog-close" aria-label="Close first run guide">×</button><span class="micro">FIRST TIME WITH THE CREW?</span><h2 id="guide-title" class="display">YOU’RE<br>ALREADY IN.</h2><p>You don’t need to earn your place here.</p><ol><li><strong>Check the plan.</strong> Meet at Royal Glenora Parking Lot on Wednesdays at 18:00. Check the latest run update for the route and any seasonal time changes.</li><li><strong>Come as you are.</strong> Wear comfortable shoes, bring water, and dress for the weather.</li><li><strong>Say hello.</strong> Let the crew know it’s your first time and find a comfortable pace together.</li></ol><p class="guide-note">Start times may shift with the seasons. Check the latest club update before heading out.</p><button class="guide-done action-link">Sounds good <span aria-hidden="true">↗</span></button></dialog>
+  <dialog id="run-guide" aria-labelledby="guide-title"><button class="dialog-close" aria-label="Close first run guide">×</button><span class="micro">FIRST TIME WITH THE CREW?</span><h2 id="guide-title" class="display">YOU’RE<br>ALREADY IN.</h2><p>You don’t need to earn your place here.</p><dl class="run-facts"><div><dt>WHERE</dt><dd>Royal Glenora Parking Lot<span>Our starting point for good miles.</span></dd></div><div><dt>WHEN</dt><dd>18:00 on Wednesdays<span>Start times may shift with the seasons.</span></dd></div><div><dt>WHO</dt><dd>You, probably.<span>Walkers, joggers, runners, first-timers.</span></dd></div><div><dt>BRING</dt><dd>Yourself. Your shoes.<span>Water and a little curiosity help too.</span></dd></div></dl><p class="guide-welcome"><strong>Say hello.</strong> Let the crew know it’s your first time and find a comfortable pace together. Dress for the weather and check the latest run update for the route.</p><p class="guide-note">Start times may shift with the seasons. Check the latest club update before heading out.</p><button class="guide-done action-link">Sounds good <span aria-hidden="true">↗</span></button></dialog>
   <noscript><style>dialog{display:block;position:relative;margin:50px auto}.dialog-close,.guide-done,#motion-toggle,[data-react]{display:none}.world-canvas{display:block;height:800px}.traveler{visibility:visible;width:32vw;top:180px}.traveler--boy{left:68vw}.traveler--girl{left:45vw}.desktop-nav{display:flex}.menu-toggle{display:none}.pace-panel[hidden]{display:block!important}.pace-arrow{display:none}@media(max-width:760px){.desktop-nav{font-size:12px;gap:12px}.header-location{display:none}.traveler{width:50vw;top:250px}.traveler--boy{left:65vw}.traveler--girl{left:30vw}}</style></noscript>
 </body>
 </html>
