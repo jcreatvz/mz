@@ -13,8 +13,7 @@
   <script src="scene-prepare.js" defer></script>
   <script src="scene-motion.js" defer></script>
   <script src="app.js" defer></script>
-  <script src="game-engine.js" defer></script>
-  <script src="game.js" defer></script>
+  <script src="console-embed.js" defer></script>
 <link rel="stylesheet" href="motion.css">
 <script src="motion.js" defer></script>
 <script src="run-gallery.js" defer></script>
@@ -69,31 +68,12 @@
       <div class="scene-top micro"><span>(03 — THE CITY IS YOUR TRACK)</span><span>A LITTLE PLAY. A LOT OF ZOOM.</span></div>
       <div class="game-intro">
         <h2 class="game-title display" id="game-title">KEEP<br><span>ZOOMIN’.</span></h2>
-        <div class="game-copy"><p>A little detour before your next real run.</p><p>Jump the roadblocks. Grab the water drops.<br>See how far ten bars can take you.</p><a class="game-skip" href="#next-run">Find the next club run</a></div>
+        <div class="game-copy"><a class="game-skip" href="#next-run">Find the next club run</a></div>
       </div>
-      <div class="game-shell" id="game-shell" data-state="ready">
-        <div class="game-hud">
-          <div class="health-readout"><span class="micro">LIFESPAN</span><div class="health-bars" id="game-health" role="meter" aria-label="Lifespan" aria-valuemin="0" aria-valuemax="10" aria-valuenow="10"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span id="health-value">10 / 10</span></div>
-          <div class="distance-readout"><span class="micro">DISTANCE</span><strong id="game-distance">0 m</strong></div>
-          <div class="water-readout"><img src="assets/game-water.webp" alt="" width="30" height="38" loading="lazy"><span id="game-drops" aria-label="Water drops collected">0</span></div>
-          <button id="game-pause" class="game-small-button" disabled>Pause</button>
-        </div>
-        <div class="game-track" id="game-track">
-          <canvas id="run-canvas" width="1200" height="440" tabindex="0" role="img" aria-label="Zoom Run game. The MZ runner moves along a city track. Press Space or the up arrow to jump, or use the Jump button. Collect water drops and avoid road hazards." aria-describedby="game-instructions">Your browser does not support the game canvas. You can still explore the club and next-run details below.</canvas>
-          <div class="game-overlay" id="game-overlay">
-            <div class="game-start-copy"><span class="micro" id="game-overlay-label">YOUR CITY. YOUR LITTLE DETOUR.</span><h3 class="display" id="game-overlay-title">LET’S<br>ZOOM.</h3><p id="game-overlay-copy">Ten bars. Water to keep you going.<br>Your first goal: one minute on the road.</p><button class="game-main-button" id="game-start">Play Zoom Run</button><a class="game-end-link" id="game-end-link" href="#next-run" hidden>Meet the crew in real life</a></div>
-          </div>
-          <div class="game-notice" id="game-notice" aria-hidden="true"></div>
-        </div>
-        <div class="game-controls">
-          <p id="game-instructions"><span class="desktop-instruction">SPACE / ↑ TO JUMP</span><span class="touch-instruction">TAP THE TRACK TO JUMP</span><span class="game-control-divider">·</span> WATER +1 BAR<span class="game-control-divider">·</span> HAZARDS −1 BAR</p>
-          <div class="game-control-buttons"><button id="game-restart" class="game-small-button" disabled>Restart</button><button id="game-jump" class="game-jump" disabled>Jump <span aria-hidden="true">↑</span></button></div>
-        </div>
+      <div class="game-shell console-host" id="game-shell" data-state="ready">
+        <iframe id="mz-console-frame" src="geymzkii/index.html" title="GEYMZKII — Metro Zoomin’ arcade run" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
       </div>
-      <div class="game-legend" aria-label="Track hazards"><span class="micro">WATCH YOUR STEP</span><span><img src="assets/game-banana.webp" alt="" width="40" height="32" loading="lazy">Banana peel</span><span><img src="assets/game-ice.webp" alt="" width="43" height="26" loading="lazy">Ice patch</span><span><img src="assets/game-barrier.webp" alt="" width="40" height="36" loading="lazy">Roadworks</span><span><img src="assets/game-pothole.webp" alt="" width="44" height="25" loading="lazy">Potholes</span></div>
-      <p class="game-access-note">Play is optional. Pause anytime. Reduced-motion mode keeps the background still.</p>
-      <p id="game-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true">Game ready. Ten lifespan bars.</p>
-      <noscript><p class="game-no-script">Zoom Run needs JavaScript to play. The run club details are available below.</p></noscript>
+      <noscript><p>Zoom Run needs JavaScript to play.</p></noscript>
     </section>
 
     <section class="scene rhythm" id="rhythm" data-scene="YOUR RHYTHM" aria-labelledby="rhythm-title">

@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1767 1498 49 45"><defs>
+    <style>
+      .cls-1 {
+        fill: #a9aaac;
+      }
+
+      .cls-2 {
+        fill: #a7abad;
+      }
+
+      .cls-3 {
+        fill: #010101;
+      }
+
+      .cls-4 {
+        fill: #4b4e7b;
+      }
+
+      .cls-5 {
+        fill: #a5a8aa;
+      }
+
+      .cls-6, .cls-7 {
+        fill: none;
+      }
+
+      .cls-6, .cls-7, .cls-8, .cls-9 {
+        stroke-linejoin: round;
+      }
+
+      .cls-6, .cls-8 {
+        stroke: #010204;
+        stroke-width: 12px;
+      }
+
+      .cls-10 {
+        fill: #e3e3e3;
+      }
+
+      .cls-11 {
+        fill: #f9faf9;
+      }
+
+      .cls-12 {
+        fill: #434878;
+      }
+
+      .cls-13 {
+        fill: #4a4d79;
+      }
+
+      .cls-14 {
+        fill: #cbcfd2;
+      }
+
+      .cls-15 {
+        fill: #aaabad;
+      }
+
+      .cls-16 {
+        font-size: 39.13px;
+      }
+
+      .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23 {
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+      }
+
+      .cls-16, .cls-17, .cls-19, .cls-24, .cls-20, .cls-21 {
+        fill: red;
+      }
+
+      .cls-25 {
+        fill: #fdfefd;
+      }
+
+      .cls-26 {
+        fill: #c8cace;
+      }
+
+      .cls-7 {
+        stroke-width: 5.43px;
+      }
+
+      .cls-7, .cls-9 {
+        stroke: #d94527;
+      }
+
+      .cls-27 {
+        fill: #caced1;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+
+      .cls-8, .cls-28 {
+        fill: #efeae3;
+      }
+
+      .cls-29 {
+        fill: #4c4e7a;
+      }
+
+      .cls-30 {
+        fill: #4d4d4d;
+      }
+
+      .cls-31 {
+        fill: #010204;
+      }
+
+      .cls-32 {
+        fill: #a5a9ac;
+      }
+
+      .cls-33 {
+        fill: #020204;
+      }
+
+      .cls-34 {
+        fill: #030414;
+      }
+
+      .cls-35 {
+        fill: #c9ccd0;
+      }
+
+      .cls-17 {
+        font-size: 12px;
+      }
+
+      .cls-36 {
+        fill: #020306;
+      }
+
+      .cls-37 {
+        fill: #fff;
+      }
+
+      .cls-38 {
+        fill: #151e1b;
+      }
+
+      .cls-18 {
+        fill: #999;
+      }
+
+      .cls-18, .cls-22 {
+        font-size: 68.48px;
+      }
+
+      .cls-9 {
+        fill: #353e68;
+        stroke-width: 3.76px;
+      }
+
+      .cls-39 {
+        fill: #d94527;
+      }
+
+      .cls-40 {
+        letter-spacing: 0em;
+      }
+
+      .cls-41 {
+        fill: #f7931e;
+      }
+
+      .cls-19 {
+        font-size: 20.14px;
+      }
+
+      .cls-42 {
+        fill: #45487b;
+      }
+
+      .cls-43 {
+        fill: #5d65a0;
+      }
+
+      .cls-44 {
+        fill: #020313;
+      }
+
+      .cls-45 {
+        fill: #5a63a1;
+      }
+
+      .cls-46 {
+        fill: #777ebb;
+      }
+
+      .cls-47 {
+        fill: #4a4e7a;
+      }
+
+      .cls-48 {
+        fill: #020414;
+      }
+
+      .cls-49 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-50 {
+        fill: #4a4e7b;
+      }
+
+      .cls-51 {
+        fill: #fbfbfb;
+      }
+
+      .cls-52 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-20 {
+        font-size: 11px;
+      }
+
+      .cls-53 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-21 {
+        font-size: 17.38px;
+      }
+
+      .cls-54 {
+        fill: #030415;
+      }
+
+      .cls-55 {
+        fill: #505489;
+      }
+
+      .cls-22 {
+        fill: #666;
+      }
+
+      .cls-23 {
+        font-size: 29.37px;
+      }
+    </style>
+  </defs>
+  <path class="cls-32" d="M1812.55,1538.17c-14.64,1.93-27.32.89-41.66.5l16.81-34.19c.67-1.36,1.17-2.68,2.06-3.1,1.37-.64,3.83-.21,4.69,1.48l18.1,35.31Z"/>
+      </svg>

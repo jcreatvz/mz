@@ -70,3 +70,10 @@ Passed: JavaScript syntax; internal links/assets; exact copy/removal audit; thre
 Browser visual QA remains unavailable in this environment; DOM geometry tests are simulated. The live preview is the next place to review the exact composition and feel.
 
 Source remains static HTML/CSS/JavaScript. `dist/scene-motion.js` holds the choreography; `dist/app.js` renders and coordinates the two actors. `window.metroCharacter.configure()` can receive separate `boy` and `girl` media configurations for future animation assets. No new animation dependency was introduced.
+
+
+## GEYMZKII website integration — 2026-10-06
+
+Shipped the console in the Play section: concise UI, original SVG route/pin and directional icons, 2 px rounded UI strokes, 30-second orange boost with airborne trails, double jump, ground-fixed jump shadow, deeper pavement, taller mobile camera and responsive embedded results. Email, PNG and CSV exports remain. Scores use `rgc-arcade-v2`.
+
+Next: hands-on mobile/desktop balance review; supplied duck pose; richer route-specific scenery. The shared CSV is still maintained manually.

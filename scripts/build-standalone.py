@@ -4,6 +4,9 @@ import base64
 import json
 import re
 import sys
+import html as html_lib
+import tempfile
+import subprocess
 
 ROOT=Path(__file__).resolve().parents[1]
 DIST=ROOT/'dist'
@@ -24,8 +27,12 @@ html=re.sub(r'src="(assets/[^"]+)"',lambda m:'src="'+assets.get(m[1],data_url(DI
 for relative,url in assets.items():
     html=html.replace('"'+relative+'"','"'+url+'"')
 scripts='window.METRO_ASSETS='+json.dumps({k:v for k,v in assets.items() if not k.endswith('.jpg')},separators=(',',':'))+';\n'
-scripts+='\n'.join((DIST/file).read_text() for file in ('scene-prepare.js','scene-motion.js','app.js','game-engine.js','game.js','motion.js','run-gallery.js'))
+scripts+='\n'.join((DIST/file).read_text() for file in ('scene-prepare.js','scene-motion.js','app.js','console-embed.js','motion.js','run-gallery.js'))
 html=html.replace('</body>','<script>\n'+scripts+'\n</script>\n</body>')
+with tempfile.TemporaryDirectory() as folder:
+    game_path=Path(folder)/'game.html'
+    subprocess.run([sys.executable,str(ROOT/'prototypes/geymzkii/build.py'),'--output',str(game_path)],check=True)
+    html=html.replace('src="geymzkii/index.html"','srcdoc="'+html_lib.escape(game_path.read_text(),quote=True)+'"')
 out=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'metro-zoomin-concept-draft.html'
 out.write_text(html)
 print(f'{out}: {out.stat().st_size:,} bytes')

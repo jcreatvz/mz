@@ -2,7 +2,7 @@
 'use strict';
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d'),overlay=$('#overlay');
 const {Game,ROUTE,INITIALS,csv}=MZGame;const game=new Game();const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-const asset=n=>window.MZ_ASSETS?.[n]||('../../dist/assets/'+n);
+const asset=n=>window.MZ_ASSETS?.[n]||('../assets/'+n);
 const uiAsset=n=>window.MZ_ASSETS?.['assets/'+n]||('assets/'+n);
 const input={up:false,down:false,left:false,right:false};const owners=new Map();
 let frame=0,last=0,acc=0,view='selection',countdownTimer=0,noticeTimer=0,loadPromise=null,loaded=false,result=null,returnView='paused';
