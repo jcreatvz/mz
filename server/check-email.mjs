@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import service from './result-email.mjs';
+const origin='https://test.example';
+const row={run_id:'test-run-123',completed:true,course_version:'rgc-arcade-v2',display_name:'Runner',distance_m:8000,time_seconds:400,gold_bolts:500,average_arcade_kmh:72,peak_arcade_kmh:110,juice_remaining:3,boosts_used:2,hazards_hit:15};
+const request=body=>new Request(origin+'/api/result',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json'},body:JSON.stringify(body)});
+assert.equal((await service.fetch(request(row),{MZ_SITE_ORIGIN:origin})).status,503);
+const env={MZ_SITE_ORIGIN:origin,RESEND_API_KEY:'test-only',MZ_RESULTS_FROM:'test@example.test',MZ_RESULTS_TO:'private@example.test'};
+assert.equal((await service.fetch(request({...row,distance_m:10}),env)).status,400);
+const original=globalThis.fetch;globalThis.fetch=async(url,init)=>{assert.equal(url,'https://api.resend.com/emails');assert.equal(JSON.parse(init.body).to[0],env.MZ_RESULTS_TO);assert.equal(init.headers['Idempotency-Key'],'mz-run/test-run-123');return Response.json({id:'mock-id'});};
+assert.equal((await (await service.fetch(request(row),env)).json()).sent,true);
+globalThis.fetch=async()=>Response.json({error:'mock-failure'},{status:500});assert.equal((await service.fetch(request(row),env)).status,502);globalThis.fetch=original;
+console.log('PASS: unconfigured sender, invalid result, mocked send success/failure; no email sent.');

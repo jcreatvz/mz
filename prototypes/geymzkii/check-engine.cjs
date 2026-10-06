@@ -19,3 +19,6 @@ console.log('PASS: boost, speed, pause, movement, variable jump, duck/bird colli
 g=fresh();assert(g.jump());advance(g,.2,{up:true});const firstLift=g.lift;assert(g.jump());assert.equal(g.jump(),false);advance(g,.2,{up:true});assert(g.lift>firstLift);advance(g,2);assert.equal(g.lift,0);assert.equal(g.jumps,0);assert(g.jump());
 g=fresh();g.viewWidth=560;advance(g,4,{right:true});assert(g.x<=350);g.hazard();assert.equal(g.objects.at(-1).x,610);
 console.log('PASS: 30-second boost, double jump limit/reset, narrow-camera bounds and spawns.');
+
+g=fresh();g.distance=7990;advance(g,2);assert.equal(g.phase,'finished');const world=g.world,flag=g.finishX;advance(g,5);assert.equal(g.world,world);assert.equal(g.finishX,flag);assert.equal(g.speed,0);assert(flag>0&&flag<g.viewWidth);
+console.log('PASS: finish freezes the camera and grounded flag.');

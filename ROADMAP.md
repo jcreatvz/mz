@@ -77,3 +77,12 @@ Source remains static HTML/CSS/JavaScript. `dist/scene-motion.js` holds the chor
 Shipped the console in the Play section: concise UI, original SVG route/pin and directional icons, 2 px rounded UI strokes, 30-second orange boost with airborne trails, double jump, ground-fixed jump shadow, deeper pavement, taller mobile camera and responsive embedded results. Email, PNG and CSV exports remain. Scores use `rgc-arcade-v2`.
 
 Next: hands-on mobile/desktop balance review; supplied duck pose; richer route-specific scenery. The shared CSV is still maintained manually.
+
+
+## Leaderboard and artwork slots — 2026-10-06
+
+- Fixed root/scene horizontal overflow containment, with narrower grid/flex children, gallery clipping and small-screen wrapping. Browser/device breakpoint measurement was unavailable in this environment; source checks completed.
+- Added a top-five CSV leaderboard with LUTZKII’s real result, trophy, stat-based aura titles, four honest empty slots, and in-dialog runner stats.
+- D-pad press states work before gameplay. Background/finish artwork accepts named files documented in `prototypes/geymzkii/assets/world/README.md`.
+- Finish marker shares road movement and freezes with the world on completion.
+- Removed mailto and visible recipient. Prepared and mock-tested direct-email handler, but sending is blocked pending an email sender and deployed server endpoint. Successful server acknowledgement clears results; errors preserve them.

@@ -6,7 +6,7 @@ const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
 const hit=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
 class Game{
  constructor(random=Math.random){this.random=random;this.viewWidth=1200;this.reset();}
- reset(){Object.assign(this,{phase:'ready',distance:0,elapsed:0,juice:10,bolts:0,waters:0,boosts:0,hits:0,peak:0,x:160,lift:0,vy:0,duck:false,boostTime:0,inv:0,stumble:0,speed:280,world:0,jumps:0,objects:[],events:[],hazardTimer:4,boltTimer:1,waterTimer:17});}
+ reset(){Object.assign(this,{phase:'ready',finishX:null,distance:0,elapsed:0,juice:10,bolts:0,waters:0,boosts:0,hits:0,peak:0,x:160,lift:0,vy:0,duck:false,boostTime:0,inv:0,stumble:0,speed:280,world:0,jumps:0,objects:[],events:[],hazardTimer:4,boltTimer:1,waterTimer:17});}
  start(){this.reset();this.phase='running';}
  get progress(){return clamp(this.distance/8000,0,1);}
  get segment(){return Math.min(7,Math.floor(this.progress*7));}
@@ -25,6 +25,7 @@ class Game{
  const desired=(280+140*this.progress)*low*(this.boostTime>0?1.65:1)*(this.stumble>0?.78:1);
  this.speed+=(desired-this.speed)*(1-Math.exp(-4*dt));this.peak=Math.max(this.peak,this.kmh);
  const travel=this.speed*dt,dx=travel*Math.min(1,this.viewWidth/1000);this.world+=dx;this.distance=Math.min(8000,this.distance+travel/18);
+ if(this.finishX!==null)this.finishX-=dx;else if(this.distance>=7750)this.finishX=this.x+95+(8000-this.distance)*18*Math.min(1,this.viewWidth/1000);
  this.boostTime=Math.max(0,this.boostTime-dt);this.inv=Math.max(0,this.inv-dt);this.stumble=Math.max(0,this.stumble-dt);
  this.lift+=this.vy*dt;this.vy-=(input.up&&this.vy>0?1250:1900)*dt;
  if(this.lift<=0){this.lift=0;this.vy=0;this.jumps=0;}
@@ -42,7 +43,7 @@ class Game{
   }
  }
  this.objects=this.objects.filter(o=>!o.gone&&o.x+o.w>-100);
- if(this.distance>=8000&&this.phase==='running'){this.phase='finished';this.events.push({type:'finish'});}
+ if(this.distance>=8000&&this.phase==='running'){this.phase='finished';this.speed=0;this.boostTime=0;this.events.push({type:'finish'});}
  }
  stats(){return {distance_m:Math.round(this.distance),time_seconds:+this.elapsed.toFixed(2),gold_bolts:this.bolts,average_arcade_kmh:this.elapsed?+(this.distance/this.elapsed*3.6).toFixed(1):0,peak_arcade_kmh:+this.peak.toFixed(1),juice_remaining:this.juice,boosts_used:this.boosts,hazards_hit:this.hits,completed:this.phase==='finished'};}
 }

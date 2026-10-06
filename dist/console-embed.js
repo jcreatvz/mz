@@ -1,7 +1,9 @@
 (()=>{
  'use strict';
  const frame=document.querySelector('#mz-console-frame'),shell=document.querySelector('#game-shell');
- if(!frame||!shell)return;
+ if(!frame||!shell)return;let seen=false,loaded=false;
+function enter(){if(seen||!loaded)return;const r=frame.getBoundingClientRect();if(r.top<innerHeight*.75&&r.bottom>0){seen=true;frame.contentWindow?.postMessage({type:'mz-console-enter'},location.origin==='null'?'*':location.origin);}}
+new IntersectionObserver(([entry])=>{if(entry.isIntersecting)enter();},{threshold:[0,.25]}).observe(frame);frame.addEventListener('load',()=>{loaded=true;enter();});
  window.addEventListener('message',event=>{
   if(event.source!==frame.contentWindow||event.origin!==location.origin)return;
   const data=event.data;if(!data||typeof data!=='object')return;

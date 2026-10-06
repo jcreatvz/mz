@@ -38,19 +38,19 @@ The clock measures active gameplay only. Slower runs can exceed eight minutes: t
 
 Hazards progress from bananas/cones to ice/construction barriers, then potholes and a stylized flying bird. The bird can be ducked. Bolts appear in ground and jump trails. Backgrounds and checkpoint spacing are provisional. Route: RGC → River Valley → Victoria Park → Emily Murphy → University of Alberta → High Level Bridge View → Walterdale → RGC.
 
-## Casual CSV leaderboard
+## Top-five leaderboard and submissions
 
-`results.csv` intentionally contains only the header until real runs arrive. At the results screen, the player can save a branded PNG, download a one-row CSV, copy stats, and open a prefilled email addressed to `jcreatvz@gmail.com`. **The player reviews and sends the email.** PNG attachment is manual. Email is offered only for completed runs; partial runs can still be saved locally.
+`results.csv` is the source of the public leaderboard. The current real row is LUTZKII’s v2 result. `scripts/sync-console.py` emits a safe data snapshot for the site. The browser also tries the public GitHub CSV on each visit; private/offline repositories fall back to the published snapshot. Future private-repo edits require syncing/publishing.
 
-To record a submission:
+Ranking: completed v2 8,000 m runs, gold bolts descending, finish time ascending as the tie-breaker. Duplicate run IDs and malformed rows are ignored. The top five are runs, so a player can occupy more than one slot. Empty slots say “This could be you.” Existing display names are preserved, with stat-based aura titles alongside them. Selecting a name opens stats in the same dialog. The first rank has a gold trophy. The dialog appears once when the console comes into view, and can be reopened using Top 5. Reduced-motion preferences disable its pop animations.
 
-1. Copy its CSV data row into `results.csv` below the header, or use a spreadsheet to import the downloaded CSV.
-2. Deduplicate by `run_id`; keep only completed 8,000 m runs for rankings.
-3. Commit the updated CSV. Publish only the chosen display name and game stats, not email addresses.
+PNG, CSV and copy exports work. The mail composer and visible recipient address were removed. **Direct email is prepared but inactive:** no email credentials or server endpoint are connected. See `server/README.md`. Send score stays disabled until `submission.endpoint` in `world-config.js` points at the deployed handler. On a positive server acknowledgement the results panel clears; failures keep it intact. Provider acceptance does not prove inbox delivery.
 
-Fastest finish: sort `time_seconds` ascending, then `gold_bolts` descending. Bolt champion: sort `gold_bolts` descending, then `time_seconds` ascending. Compare only matching `course_version` values (`rgc-arcade-v2` initially). This draft does not display a shared leaderboard yet; the repo CSV is the record. Device-local personal bests are stored separately in localStorage.
+Maintain the CSV by appending actual exported results, deduplicating run IDs and committing. Scores are casual, editable and unverified. Publish only display names and run stats, not personal email addresses. Device-local personal bests stay separate from this shared CSV. Do not compare different course versions.
 
-CSV fields record a client-generated ID and timestamp, display name, course version, completion status, distance, time, bolts, average/peak arcade speed, Juice, boost count and hazard count. `submitted_at_utc` is the captured end-of-run timestamp, not proof an email was sent. Spreadsheet-formula prefixes and quotes are escaped on export. Scores are unverified, editable and intended for fun. The browser never writes to GitHub or contains repository credentials.
+## Custom scenery and finish flag
+
+See `assets/world/README.md` for the exact filenames, dimensions and supported formats. Missing artwork retains the original scenery/flag. Run `scripts/sync-console.py` after adding artwork and republish. The flag travels at the road’s speed and freezes when the course finishes; animated GIFs flutter in place without moving the camera.
 
 ## Architecture and roadmap
 
@@ -60,7 +60,7 @@ CSV fields record a client-generated ID and timestamp, display name, course vers
 - `assets/`: movable controls and shell extracted from the supplied SVG; original art preserved separately.
 - `build.py`: packages code, shared sprites, font and console SVGs into one offline file.
 
-Delivered: console shell, compact three-column controls, 30-second orange boost, double jump, original route map with moving pin, ground-anchored jump shadow, deeper road, taller responsive camera, resources, hazards, results and exports. Next: hands-on desktop/mobile playtesting and balance tuning, then exact route landmarks/backgrounds and optional shared CSV leaderboard view. Integrated into the website’s Play section. Sound/haptics, additional playable characters, authoritative score verification and automated submissions are later options.
+Delivered: console shell, compact three-column controls, 30-second orange boost, double jump, original route map with moving pin, ground-anchored jump shadow, deeper road, taller responsive camera, resources, hazards, results and exports. Next: hands-on desktop/mobile playtesting and balance tuning, then custom route landmarks/backgrounds. Integrated into the website’s Play section. Sound/haptics, additional playable characters, authoritative score verification and automated submissions are later options.
 
 Validation: JavaScript syntax checks and deterministic engine tests cover boosting, speed, pause, movement limits, variable jump, duck collision, water, damage immunity, course completion and CSV escaping. Actual device/browser playtesting remains a review step; this is not a production QA sign-off.
 
