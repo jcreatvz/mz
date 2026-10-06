@@ -86,3 +86,8 @@ Next: hands-on mobile/desktop balance review; supplied duck pose; richer route-s
 - D-pad press states work before gameplay. Background/finish artwork accepts named files documented in `prototypes/geymzkii/assets/world/README.md`.
 - Finish marker shares road movement and freezes with the world on completion.
 - Removed mailto and visible recipient. Prepared and mock-tested direct-email handler, but sending is blocked pending an email sender and deployed server endpoint. Successful server acknowledgement clears results; errors preserve them.
+
+
+## Manual email submission restored — 2026-10-06
+
+Email score opens a prefilled composer to JC with name, full stats, course/version, capture time, run ID and CSV row. PNG download supports manual attachment; supported devices also offer native PNG + stats sharing. Results stay visible while composing, since a browser cannot confirm sending. No email service connection is required for this flow.
